@@ -26,6 +26,8 @@
 ### 🔐 Login — Bold Gradient UI with Glass Morphism
 <img src="login.png" alt="Login Page" width="700" />
 
+<img src="Landing page.png" alt="Login Page" width="700" />
+
 <br/><br/>
 
 ### 📞 Contact Us
