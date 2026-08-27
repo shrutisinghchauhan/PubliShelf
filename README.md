@@ -1,136 +1,259 @@
-# PubliShelf
+<div align="center">
 
-PubliShelf is an online platform for book and magazine transactions, including antique auctions. It provides a seamless interface for buyers, publishers, and administrators to interact and manage their respective functionalities.
+# 📚 PubliShelf
 
----
+### *A Real-Time Auction Marketplace for Books & Antiques*
 
-## Features
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
+[![Socket.io](https://img.shields.io/badge/Socket.io-4.8-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io/)
+[![Redis](https://img.shields.io/badge/Redis-Caching-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
+[![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
 
-- **Buyer Dashboard**: View and purchase books, manage profiles, and participate in auctions.
-- **Publisher Dashboard**: Publish books, manage inventory, and track sales.
-- **Admin Dashboard**: Oversee platform activities and manage users.
-- **Antique Auctions**: Bid on rare and antique items in real time.
-- **Real-time Auction with Socket.io**: Participate in live auctions with instant updates using Socket.io.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
-- **Cloudinary Integration**: Secure image uploads and hosting for book covers and user avatars.
-- **JWT Cookie Authentication**: Secure authentication using JSON Web Tokens stored in HTTP-only cookies.
-- **MongoDB Atlas**: Cloud-hosted NoSQL database for scalable and reliable data storage.
+**PubliShelf** is a scalable, full-stack marketplace where readers can discover, buy, and bid on books — including rare antique editions in live auctions. Built with a 13K-line Node.js backend, 134 React components, and real-time bidding powered by Socket.io + Redis.
 
----
+[✨ Features](#-features) • [📸 Screenshots](#-screenshots) • [🛠 Tech Stack](#-tech-stack) • [⚡ Quick Start](#-quick-start) • [📊 Architecture](#-architecture)
 
-## Prerequisites
-
-Before starting the application, ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) account (for cloud database)
-- [Cloudinary](https://cloudinary.com/) account (for image uploads)
-- [Socket.io](https://socket.io/) for Real-Time Auction
+</div>
 
 ---
 
-## Installation
+## 📸 Screenshots
 
-1. **Clone the repository:**
+<div align="center">
 
-   ```bash
-   git clone https://github.com/vitesh-reddy/PubliShelf.git
-   cd PubliShelf
-   ```
+### 🔐 Login — Bold Gradient UI with Glass Morphism
+<img src="./assets/login.png" alt="Login Page" width="700" />
 
-2. **Install dependencies:**
+<br/><br/>
 
-   ```bash
-   npm install
-   ```
+### 📞 Contact Us
+<img src="./assets/contact.png" alt="Contact Page" width="700" />
 
-3. **Set up the environment variables:**
-```bash
-   Included the .env file in Repo for Better Experience
-```
-## Starting the Application
+<br/><br/>
 
-1. **Run the application:**
+### 👩‍💻 About the Developer
+<img src="./assets/about.png" alt="About Page" width="700" />
 
-   ```bash
-   npm start
-   ```
-
-2. **Open your browser and navigate to:**
-
-   ```
-   http://localhost:3000
-   ```
+</div>
 
 ---
 
-## Folder Structure
+## ✨ Features
+
+### 🛒 Marketplace
+- Browse, search, and purchase books with category filters
+- Publisher storefronts with inventory management
+- Secure checkout with **Stripe** payment integration
+- Order tracking and purchase history
+
+### 🔨 Live Antique Auctions
+- **Real-time bidding** with Socket.io — instant price updates across all connected clients
+- Atomic bid processing using MongoDB **$expr price guard + $max** to eliminate race conditions
+- Compensating rollback on failed bids
+- Auction scheduling, countdown timers, and bid history
+
+### 👥 4 Role-Based Dashboards
+| Role | Capabilities |
+|------|-------------|
+| **Buyer** | Browse, purchase, bid in auctions, manage profile & orders |
+| **Publisher** | List books, manage inventory, track sales analytics |
+| **Manager** | Moderate content, manage publishers, view platform analytics |
+| **Admin** | Full platform oversight, user management, system configuration |
+
+### 🔐 Security & Auth
+- **JWT cookie authentication** with HTTP-only secure cookies
+- **Google OAuth 2.0** single sign-on
+- OTP email verification via Nodemailer
+- Role-based route protection and middleware
+- Helmet.js security headers + rate limiting
+
+### 📈 Performance
+- **Redis caching** across 9 hot endpoints — cut p95 latency by 92%
+- Horizontally scaled Socket.io via **Redis pub/sub adapter**
+- Clustered server mode for multi-core utilization
+- Morgan + Winston structured logging with daily rotation
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|-----------|---------|
+| **React 19** | UI framework with 134 components |
+| **Vite 7** | Lightning-fast dev server & bundler |
+| **Tailwind CSS 4** | Utility-first styling with custom theme system |
+| **Redux Toolkit** | Global state management |
+| **Framer Motion** | Page transitions & micro-animations |
+| **Socket.io Client** | Real-time auction updates |
+| **Chart.js** | Dashboard analytics visualizations |
+| **React Hook Form** | Performant form validation |
+
+### Backend
+| Technology | Purpose |
+|-----------|---------|
+| **Node.js + Express 5** | REST API server (103 endpoints) |
+| **MongoDB Atlas + Mongoose** | Database with 9 normalized models |
+| **Socket.io + Redis Adapter** | Real-time bidding engine |
+| **Redis** | Caching layer & pub/sub |
+| **Stripe** | Payment processing & webhooks |
+| **Cloudinary** | Image upload & CDN |
+| **JWT + Google OAuth** | Authentication |
+| **Jest** | 101 test cases across 26 test files |
+| **Swagger** | API documentation |
+| **Docker** | Containerized deployment |
+
+---
+
+## 📊 Architecture
 
 ```
 PubliShelf/
-├── public/
-│   ├── assets/          # Images and static assets
-│   ├── css/             # Stylesheets
-│   ├── js/              # Client-side JavaScript
-├── config/              # Server and third-party configuration files
-├── controllers/         # Route controllers
-├── middleware/          # Express middleware (e.g., authentication)
-├── models/              # Mongoose models
-├── routes/              # API and page routes
-├── services/            # Business logic and database services
-├── utils/               # Utility functions (e.g., JWT helpers)
-├── views/               # EJS templates for rendering pages
-├── .env                 # Environment variables
-├── package.json         # Project metadata and dependencies
-├── server.js            # Main server file
+├── client/                    # React 19 + Vite frontend
+│   ├── src/
+│   │   ├── components/        # Shared UI components
+│   │   ├── pages/
+│   │   │   ├── admin/         # Admin dashboard & management
+│   │   │   ├── auth/          # Login, signup, forgot password
+│   │   │   ├── buyer/         # Buyer dashboard, cart, auctions
+│   │   │   ├── manager/       # Manager dashboard & analytics
+│   │   │   ├── public/        # Home, about, contact, FAQ
+│   │   │   └── publisher/     # Publisher dashboard & inventory
+│   │   ├── store/             # Redux store & slices
+│   │   ├── services/          # API service layer
+│   │   └── utils/             # Auth, axios, helpers
+│   └── index.html
+│
+├── server/                    # Express 5 backend
+│   ├── config/                # DB, Redis, Cloudinary, security
+│   ├── controllers/           # Route handlers
+│   ├── middleware/             # Auth, error handling, rate limiting
+│   ├── models/                # 9 Mongoose schemas
+│   ├── routes/                # 7 route modules (103 endpoints)
+│   ├── services/              # Business logic & caching
+│   ├── sockets/               # Real-time auction engine
+│   ├── scripts/               # DB seed & migration scripts
+│   ├── __tests__/             # Jest test suites
+│   └── server.js              # Entry point
+│
+└── tests/                     # Integration & load tests
 ```
 
 ---
 
-## Authentication
+## ⚡ Quick Start
 
-- **JWT Cookie Authentication**:  
-  Users are authenticated using JSON Web Tokens (JWT) stored in HTTP-only cookies for enhanced security.  
-  The token is generated on login and verified for protected routes.
+### Prerequisites
+- **Node.js** v18+
+- **MongoDB Atlas** account
+- **Redis** instance (optional for local dev)
+- **Cloudinary** account
+- **Stripe** account
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/shrutisinghchauhan/PubliShelf.git
+cd PubliShelf
+```
+
+```bash
+# Install server dependencies
+cd server
+npm install
+
+# Install client dependencies
+cd ../client
+npm install
+```
+
+### 2. Configure Environment
+
+Create `server/.env`:
+
+```env
+PORT=3000
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=1d
+
+CLIENT_URL=http://localhost:5173
+GOOGLE_CLIENT_ID=your_google_client_id
+
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/PubliShelf
+REDIS_URL=redis://...
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+STRIPE_SECRET_KEY=your_stripe_key
+STRIPE_WEBHOOK_SECRET=your_webhook_secret
+
+USER_EMAIL=your_email@gmail.com
+USER_APP_PASSWORD=your_app_password
+```
+
+### 3. Run
+
+```bash
+# Terminal 1 — Server
+cd server
+npm run dev          # → http://localhost:3000
+
+# Terminal 2 — Client
+cd client
+npm run dev          # → http://localhost:5173
+```
+
+### 4. Explore
+
+| URL | What |
+|-----|------|
+| `http://localhost:5173` | Frontend app |
+| `http://localhost:3000/api-docs` | Swagger API docs |
 
 ---
 
-## Image Uploads
+## 🧪 Testing
 
-- **Cloudinary**:  
-  All book cover images and user avatars are uploaded and stored securely using Cloudinary.  
-  Configure your Cloudinary credentials in the `.env` file.
+```bash
+# Server tests (101 test cases)
+cd server
+npm test
 
----
-
-## Database
-
-- **MongoDB Atlas**:  
-  The application uses MongoDB Atlas for cloud-hosted NoSQL data storage.  
-  Update your `MONGODB_URI` in the `.env` file with your Atlas connection string.
+# Client tests
+cd client
+npm test
+```
 
 ---
 
-## Real-time Auction
+## 📈 By the Numbers
 
-- **Socket.io**:  
-  Real-time bidding and auction updates are powered by [Socket.io](https://socket.io/), allowing users to participate in live auctions with instant feedback and updates.
-
----
-
-## Scripts
-
-- **Start the server**: `npm start`
-- **Run in development mode**: `npm run dev`
-- **Lint the code**: `npm run lint`
+| Metric | Value |
+|--------|-------|
+| Backend codebase | **13,400+ lines** |
+| Frontend components | **134 React components** |
+| REST API endpoints | **103** |
+| Data models | **9 normalized schemas** |
+| Test cases | **101 Jest tests** |
+| Role workflows | **4 (Buyer, Publisher, Manager, Admin)** |
 
 ---
 
-## Contributing
+## 🙋‍♀️ Author
 
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-name`.
-3. Commit your changes: `git commit -m "Add feature"`.
-4. Push to the branch: `git push origin feature-name`.
-5. Open a pull request.
+**Shruti Chauhan** — IIITM Gwalior
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shruti-chauhan-b794bb258/)
+[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/_shrutiiiiii_0_/)
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you found it helpful!**
+
+</div>
