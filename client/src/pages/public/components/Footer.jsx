@@ -95,10 +95,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
-              <Link to="#" className="text-gray-400 hover:text-white"><i className="fab fa-twitter"></i></Link>
-              <Link to="#" className="text-gray-400 hover:text-white"><i className="fab fa-facebook"></i></Link>
-              <Link to="#" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i></Link>
-              <Link to="#" className="text-gray-400 hover:text-white"><i className="fab fa-linkedin"></i></Link>
+              <a href="https://www.instagram.com/_shrutiiiiii_0_/?hl=en" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/shruti-chauhan-b794bb258/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><i className="fab fa-linkedin"></i></a>
             </div>
           </div>
         </div>

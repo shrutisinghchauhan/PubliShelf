@@ -1,34 +1,6 @@
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-const teamMembers = [
-  {
-    name: "Akash Varma",
-    role: "Frontend Developer",
-    desc: "Handles the design and functionality of Forms and Authentication.",
-  },
-  {
-    name: "Ch Vinayak",
-    role: "Frontend Manager",
-    desc: "Drives user engagement and promotional campaigns.",
-  },
-  {
-    name: "KL Vitesh Reddy",
-    role: "Backend Developer",
-    desc: "Manages server-side logic and database integration.",
-  },
-  {
-    name: "Rithish Reddy",
-    role: "Frontend Developer",
-    desc: "Focuses on creating intuitive and visually appealing pages.",
-  },
-  {
-    name: "Vishnu Vardhan",
-    role: "Frontend Manager",
-    desc: "Oversees the creation and management of website content.",
-  }
-];
 
 const About = () => {
   return (
@@ -58,22 +30,28 @@ const About = () => {
             <div className="about-card">
               <h2 className="about-card-title">Our Team</h2>
               <p className="about-card-text">
-                Our team is made up of passionate book lovers and tech enthusiasts who are dedicated to making PubliShelf the best place to buy and sell books online.
+                PubliShelf is built with passion by a dedicated developer who loves books and technology.
               </p>
             </div>
           </div>
 
           <div className="team-section">
-            <h2 className="team-title">Meet Our Team</h2>
-            <div className="team-grid">
-              {teamMembers.map((member, index) => (
-                <div className="team-card" key={index}>
-                  <FaUserCircle className="team-member-img mx-auto scale-75" size={50} />
-                  <h3 className="team-member-name">{member.name}</h3>
-                  <p className="team-member-role">{member.role}</p>
-                  <p className="team-member-desc">{member.desc}</p>
+            <h2 className="team-title">Meet the Developer</h2>
+            <div className="flex justify-center">
+              <div className="team-card" style={{ maxWidth: "320px" }}>
+                <FaUserCircle className="team-member-img mx-auto scale-75" size={50} />
+                <h3 className="team-member-name">Shruti Chauhan</h3>
+                <p className="team-member-role">Full Stack Developer</p>
+                <p className="team-member-desc">IIITM Gwalior</p>
+                <div className="flex justify-center gap-4 mt-4">
+                  <a href="https://www.linkedin.com/in/shruti-chauhan-b794bb258/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
+                    <FaLinkedin size={24} />
+                  </a>
+                  <a href="https://www.instagram.com/_shrutiiiiii_0_/?hl=en" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700 transition-colors">
+                    <FaInstagram size={24} />
+                  </a>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>

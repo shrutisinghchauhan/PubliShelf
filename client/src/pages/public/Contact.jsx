@@ -177,15 +177,15 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <i className="fas fa-map-marker-alt text-purple-600 mr-2"></i>
-                  <span className="text-gray-600">IIIT Sri City, Boys Hostel-3, Gnan Marg Circle</span>
+                  <span className="text-gray-600">IIITM Campus, Gwalior, Girls Hostel</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-phone text-purple-600 mr-2"></i>
-                  <span className="text-gray-600">+91 80992 69269</span>
+                  <span className="text-gray-600">+91 89628 44727</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-envelope text-purple-600 mr-2"></i>
-                  <span className="text-gray-600">publishelf07@gmail.com</span>
+                  <span className="text-gray-600">shrutichauhan4april4@gmail.com</span>
                 </div>
               </div>
             </div>

@@ -71,18 +71,12 @@ const Footer = () => {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <Link to="#" className="hover:text-purple-400 transition-colors">
-                <i className="fab fa-facebook text-xl"></i>
-              </Link>
-              <Link to="#" className="hover:text-purple-400 transition-colors">
-                <i className="fab fa-twitter text-xl"></i>
-              </Link>
-              <Link to="#" className="hover:text-purple-400 transition-colors">
+              <a href="https://www.instagram.com/_shrutiiiiii_0_/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">
                 <i className="fab fa-instagram text-xl"></i>
-              </Link>
-              <Link to="#" className="hover:text-purple-400 transition-colors">
+              </a>
+              <a href="https://www.linkedin.com/in/shruti-chauhan-b794bb258/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">
                 <i className="fab fa-linkedin text-xl"></i>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
