@@ -259,6 +259,5 @@ npm test
 
 <div align="center">
 
-**⭐ Star this repo if you found it helpful!**
 
 </div>
