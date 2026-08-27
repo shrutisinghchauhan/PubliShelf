@@ -24,17 +24,20 @@
 <div align="center">
 
 ### 🔐 Login — Bold Gradient UI with Glass Morphism
-<img src="./assets/login.png" alt="Login Page" width="700" />
+<img src="login.png" alt="Login Page" width="700" />
 
 <br/><br/>
 
 ### 📞 Contact Us
-<img src="./assets/contact.png" alt="Contact Page" width="700" />
+<img src="contact.png" alt="Contact Page" width="700" />
 
 <br/><br/>
 
 ### 👩‍💻 About the Developer
-<img src="./assets/about.png" alt="About Page" width="700" />
+<img src="about.png" alt="About Page" width="700" />
+
+### HOME page 
+<img src="Screenshort 2026-08-27 150433.png" alt="About Page" width="700" />
 
 </div>
 
